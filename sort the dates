@@ -1,0 +1,28 @@
+import java.util.*;
+import java.text.*;
+
+public class SortDates {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+String datesInput = input.nextLine();
+    String[] datesArray = datesInput.split(",");
+  Date[] dates = new Date[datesArray.length];
+  SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+  
+  for (int i = 0; i < datesArray.length; i++) {
+     try {
+        dates[i] = sdf.parse(datesArray[i].trim());
+     } catch (ParseException e) {
+        e.printStackTrace();
+     }
+  }
+  
+  Arrays.sort(dates);
+  
+  
+  for (Date date : dates) {
+     System.out.print(sdf.format(date)+",");
+  }
+}
+}
+    
